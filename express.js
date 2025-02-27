@@ -6,7 +6,6 @@ const bcrypt = require('bcrypt');
 const mysql = require('mysql2');
 const app = express();
 const cors = require('cors');
-const path = require('path');
 const multer = require('multer');
 const upload = multer({storage: multer.memoryStorage(),});
 
@@ -43,8 +42,6 @@ app.use(session({
 // Parse incoming request body
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-app.use(express.static(path.join(__dirname, 'src')));
 
 // Your login endpoint
 app.post('/login', (req, res) => {
